@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre></pre>
+    <button>delete</button>
+
+    <script>
+        const view = document.querySelector("pre");
+        const btn = document.querySelector("button");
+
+        const acc = JSON.parse(localStorage.getItem("current-user-alamat") || "null");
+
+        view.textContent = JSON.stringify(acc, null, 2);
+
+        btn.addEventListener("click", () => {
+            localStorage.removeItem("current-user-alamat");
+            location.reload();
+        });
+    </script>
+</body>
+</html>

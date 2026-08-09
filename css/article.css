@@ -1,0 +1,21 @@
+:root{
+    --bg-color:rgba(255, 255, 255, 0.8);
+    --font-color: rgba(0, 0, 0, 0.8);
+    --shadow-color: rgba(21, 221, 81, 0.5);
+}
+#History{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 500px;
+
+}
+#History p {
+    font-size: 1.2rem;
+}
+#History .history-container {
+    width: 95%;
+    height: 100%;
+
+    border-radius: 0%;
+}

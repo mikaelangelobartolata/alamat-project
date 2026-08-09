@@ -1,0 +1,124 @@
+:root{
+    --bg-color:rgba(255, 255, 255, 0.8);
+    --font-color: rgba(0, 0, 0, 0.8);
+    --shadow-color: rgba(21, 221, 81, 0.5);
+}
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--bg-color);
+    height: 300px;
+    width: 100%;
+    gap: 1%;
+    overflow: auto;
+}
+section div{
+    background-color: transparent;
+    opacity: 0.9;
+    height: 75%;
+    width: 29%;
+    border-radius: 30px;
+    transition: all 200ms ease-in-out;
+    padding: 10px 30px;
+    cursor: auto;
+    overflow: auto;
+    scrollbar-width: none;
+}
+.section-1st-child{
+    animation: container1st 1000ms ease-in-out;
+    animation-delay: 0ms;
+}
+.section-2nd-child{
+    animation: container1st 1000ms ease-in-out;
+    animation-delay: 250ms;
+}
+.section-3rd-child{
+    animation: container1st 1000ms ease-in-out;
+    animation-delay: 500ms;
+}
+@keyframes container1st {
+    from{
+        transform: translate(0, 110%);
+        opacity: 0;
+    } to { 
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+@keyframes container2nd {
+    from{
+        transform: translate(0, 110%);
+        opacity: 0;
+    } to { 
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+@keyframes container3rd {
+    from{
+        transform: translate(0, 110%);
+        opacity: 0;
+    } to { 
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+.section-child:hover{
+    border: 1px solid rgba(21, 221, 81, 1);
+    box-shadow: 0px 0px 20px 2px var(--shadow-color);
+    margin-top: -7px;
+    
+}
+.section-1st-child, .section-2nd-child{
+    margin-left: 20px;
+}
+.image{
+    display: block;
+}
+.section-logo {
+    transition: 1s ease-in-out;
+    height: 68px;
+    width:113px;
+    display: block;
+    margin-bottom: 13px;
+    margin-left: -25px;
+    opacity: 0.8;
+}
+.section-Picture {
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 10px;
+    object-fit: fill;
+}
+.extra-picture {
+    box-shadow: 0px 0px 2px var(--shadow-color);
+}
+#number{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--font-color);
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--font-color);
+    margin-bottom: 10px;
+    margin-left: 6px;
+    transition: 300ms ease-in-out;
+}
+#number:hover{
+    box-shadow: 0px 0px 3px rgba(12, 184, 69, 0.8);
+    border: 1px solid rgba(12, 184, 69, 0.8);
+}
+#count{
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgba(12, 184, 69, 0.8);
+    margin-bottom: 10px;
+}
+
+section.dark > * {
+    background-color: rgb(36, 36, 36);
+}
