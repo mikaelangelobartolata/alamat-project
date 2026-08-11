@@ -8,11 +8,12 @@ function intializeStartupData(username) {
     const data = {
         name: username,
         isFirstVisit: true,
+        isFinishedOnce: false,
         theme: "light",
-        history: []
+        lastPageViewed: null,
+        history: [],
     }
     currUser = data;
-    alert(currUser);
 
     localStorage.setItem("current-user-alamat", JSON.stringify(currUser));
 }

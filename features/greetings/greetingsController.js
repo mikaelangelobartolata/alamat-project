@@ -5,6 +5,7 @@ import getUserData from "../../data/data.js";
 import createOverlay from "../../components/overlay.js";
 
 import closeModal from "../utils/closeModal.js";
+import intializeStartupData from "../../data/addData.js";
 
 const body = document.querySelector("body");
 
@@ -27,7 +28,7 @@ const fillName = () => {
     const close = header.querySelector(".close-modal");
 
     submitBtn.addEventListener("click", () => {
-        const input = header.querySelector("input");
+        const input = main.querySelector("input");
         const value = input.value.trim();
 
         if (value === "") return;

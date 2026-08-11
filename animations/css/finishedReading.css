@@ -1,0 +1,196 @@
+@media (max-width: 768px) {
+    .cover-animation {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+
+        right: 0;
+        width: 0;
+        height: 100%;
+
+        transition: width 1.5s ease;
+
+        background: linear-gradient(135deg, #3a1c1e 0%, #200d0e 100%);
+        box-shadow: 
+            inset 20px 0 25px -5px rgba(0, 0, 0, 0.75),
+            inset -2px 0 5px rgba(255, 255, 255, 0.08), 
+            -10px 0 25px rgba(0, 0, 0, 0.5);
+        border-left: 5px solid #140708;
+    }
+
+    .cover-animation > * {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        flex: 1;
+        font-family: "Georgia", "Times New Roman", serif;
+        color: #d4af37;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+        letter-spacing: 1.5px;
+    }
+    .cover-animation .card-header p {
+        opacity: 0;
+        font-size: clamp(1rem, 1.5vw, 2rem);
+        transition: opacity 0.6s ease;
+    }
+        .cover-animation .card-main p {
+        opacity: 0;
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
+        transition: opacity 0.6s ease;
+    }
+    .cover-animation .card-header p.animate {
+        opacity: 1;
+    }
+    .cover-animation .card-main p.animate {
+        opacity: 1;
+    }
+    .cover-animation.animate {
+        width: 100%;
+        height: 100%;
+    }
+
+    .cover-animation button {
+        opacity: 0;
+        margin: 0;
+        background: linear-gradient(180deg, #d4af37 0%, #a37c0f 100%);
+        color: #1a0f11;
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 1px solid #705303;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+        transition: opacity 0.6s ease;
+    }
+    .cover-animation button.animate {
+        opacity: 1;
+    }
+    .book {
+        transition: transform 1s ease;
+        background-color: #fdfbf7;
+        font-size: 1rem;
+    }
+    .book.animate-size {
+        transform: scale(0.8);
+    }
+    .book.animate-move {
+        width: 95%;
+        transform: translateX(-150%);
+    }
+}
+@media (min-width: 769px) and (max-width: 1528px) {
+    .book {
+        background-color: transparent;
+        box-shadow: none;
+
+        transition: transform 0.8s ease;
+    }
+    .cover-div, .scene {
+        transition: transform 0.8s ease;
+    }
+    .cover-div.animate-descend {
+        position: absolute;
+        height: 100%;
+    }
+    .scene.animate-descend {
+        position: relative;
+        right: 0;
+        height: 100%;
+    }
+    .cover-div.animate-toRight-move {
+        right: 50%;
+        transform: translate(50%);
+        border-radius: 10px;
+    }
+    .scene.animate-toLeft-move {
+        left: 50%;
+        transform: translate(-50%);
+        border-radius: 10px;
+    }
+
+    .cover-animation {
+        display: flex;
+        flex-direction: column;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+
+        transition: width 1.5s ease;
+
+        background: linear-gradient(135deg, #3a1c1e 0%, #200d0e 100%);
+        box-shadow: 
+            inset 20px 0 25px -5px rgba(0, 0, 0, 0.75),
+            inset -2px 0 5px rgba(255, 255, 255, 0.08), 
+            -10px 0 25px rgba(0, 0, 0, 0.5);
+        border-left: 5px solid #140708;
+    }
+
+    .cover-animation > * {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        flex: 1;
+        font-family: "Georgia", "Times New Roman", serif;
+        color: #d4af37;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+        letter-spacing: 1.5px;
+    }
+    .cover-animation .card-header p {
+        opacity: 0;
+        font-size: clamp(1rem, 1.5vw, 2rem);
+        transition: opacity 0.6s ease;
+    }
+        .cover-animation .card-main p {
+        opacity: 0;
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
+        transition: opacity 0.6s ease;
+    }
+    .cover-animation .card-header p.animate {
+        opacity: 1;
+    }
+    .cover-animation .card-main p.animate {
+        opacity: 1;
+    }
+    .cover-animation.animate {
+        width: 100%;
+        height: 100%;
+    }
+
+    .cover-animation button {
+        opacity: 0;
+        margin: 0;
+        background: linear-gradient(180deg, #d4af37 0%, #a37c0f 100%);
+        color: #1a0f11;
+        font-size: clamp(0.7rem, 1.2vw, 2rem);
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 1px solid #705303;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+        transition: opacity 0.6s ease;
+    }
+    .cover-animation p {
+        color: #d4af37 !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        text-align: center;
+        padding: 0 20px;
+    }
+    .cover-animation button.animate {
+        opacity: 1;
+    }
+    .book.animate-size {
+        transform: scale(0.8);
+    }
+    .book.animate-move {
+        width: 95%;
+        transform: translateX(-150%);
+    }
+
+}

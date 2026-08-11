@@ -1,9 +1,10 @@
-:root{
-    --bg-color:rgba(255, 255, 255, 0.8);
+:root {
+    --bg-color: rgba(255, 255, 255, 0.8);
     --font-color: rgba(0, 0, 0, 0.8);
     --shadow-color: rgba(21, 221, 81, 0.5);
 }
-section{
+
+section {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -11,10 +12,11 @@ section{
     background-color: var(--bg-color);
     height: 300px;
     width: 100%;
-    gap: 1%;
+    gap: 1.5%;
     overflow: auto;
 }
-section div{
+
+section div {
     background-color: transparent;
     opacity: 0.9;
     height: 75%;
@@ -26,61 +28,44 @@ section div{
     overflow: auto;
     scrollbar-width: none;
 }
-.section-1st-child{
-    animation: container1st 1000ms ease-in-out;
-    animation-delay: 0ms;
+
+.section-1st-child {
+    animation: slideUp 1000ms ease-in-out 0ms forwards;
 }
-.section-2nd-child{
-    animation: container1st 1000ms ease-in-out;
-    animation-delay: 250ms;
+
+.section-2nd-child {
+    animation: slideUp 1000ms ease-in-out 250ms forwards;
 }
-.section-3rd-child{
-    animation: container1st 1000ms ease-in-out;
-    animation-delay: 500ms;
+
+.section-3rd-child {
+    animation: slideUp 1000ms ease-in-out 500ms forwards;
 }
-@keyframes container1st {
-    from{
-        transform: translate(0, 110%);
+
+@keyframes slideUp {
+    from {
+        transform: translateY(110%);
         opacity: 0;
-    } to { 
-        transform: translate(0);
+    } 
+    to { 
+        transform: translateY(0);
         opacity: 1;
     }
 }
-@keyframes container2nd {
-    from{
-        transform: translate(0, 110%);
-        opacity: 0;
-    } to { 
-        transform: translate(0);
-        opacity: 1;
-    }
-}
-@keyframes container3rd {
-    from{
-        transform: translate(0, 110%);
-        opacity: 0;
-    } to { 
-        transform: translate(0);
-        opacity: 1;
-    }
-}
-.section-child:hover{
+.section-child:hover {
     border: 1px solid rgba(21, 221, 81, 1);
     box-shadow: 0px 0px 20px 2px var(--shadow-color);
-    margin-top: -7px;
-    
+    transform: translateY(-7px);
 }
-.section-1st-child, .section-2nd-child{
+.section-1st-child, .section-2nd-child {
     margin-left: 20px;
 }
-.image{
+.image {
     display: block;
 }
 .section-logo {
     transition: 1s ease-in-out;
     height: 68px;
-    width:113px;
+    width: 113px;
     display: block;
     margin-bottom: 13px;
     margin-left: -25px;
@@ -91,12 +76,12 @@ section div{
     width: 100%;
     opacity: 0.9;
     border-radius: 10px;
-    object-fit: fill;
+    object-fit: cover;
 }
 .extra-picture {
     box-shadow: 0px 0px 2px var(--shadow-color);
 }
-#number{
+#number {
     font-size: 20px;
     font-weight: bold;
     color: var(--font-color);
@@ -108,11 +93,13 @@ section div{
     margin-left: 6px;
     transition: 300ms ease-in-out;
 }
-#number:hover{
+
+#number:hover {
     box-shadow: 0px 0px 3px rgba(12, 184, 69, 0.8);
     border: 1px solid rgba(12, 184, 69, 0.8);
 }
-#count{
+
+#count {
     font-size: 1rem;
     font-weight: bold;
     color: rgba(12, 184, 69, 0.8);
@@ -121,4 +108,49 @@ section div{
 
 section.dark > * {
     background-color: rgb(36, 36, 36);
+}
+
+
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+        height: auto;
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    section div {
+        width: 100%;
+        height: auto;
+        padding: 25px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .section-1st-child, 
+    .section-2nd-child {
+        margin-left: 0;
+    }
+    .section-logo {
+        width: 120px;
+        height: auto;
+        margin: 0 0 15px 0; 
+        object-fit: contain;
+    }
+
+    .section-Picture {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        margin: 0 0 15px 0;
+    }
+
+    #number {
+        margin-left: 0;
+    }
+
+    .section-child:hover {
+        transform: none;
+    }
 }

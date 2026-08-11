@@ -1,8 +1,15 @@
 import greetingsController from "./features/greetings/greetingsController.js";
 import clickSpoiler from "./features/summary/summaryController.js";
+import readStory from "./features/read/readController.js";
+import continueReadController from "./features/continueRead/continueController.js";
+
+import historyController from "./features/history/historyController.js";
 
 greetingsController.checkFirstVisit();
+historyController.renderHistory();
 clickSpoiler();
+readStory();
+continueReadController();
 
 const bodyDOM = document.body;
 

@@ -1,21 +1,608 @@
-:root{
-    --bg-color:rgba(255, 255, 255, 0.8);
-    --font-color: rgba(0, 0, 0, 0.8);
-    --shadow-color: rgba(21, 221, 81, 0.5);
+:root {
+    --bg-color: rgba(255, 255, 255, 0.8);
+    --card-bg: #ffffff;
+    --card-item-bg: #f9f9f9;
+    --font-color: rgba(0, 0, 0, 0.85);
+    --shadow-color: rgba(0, 212, 64, 0.15);
+    --border-color: rgba(0, 0, 0, 0.08);
+
+    --primary-green: #00d440;
+    --primary-green-hover: #00b336;
+
+    --scrollbar-track: rgba(0, 0, 0, 0.06);
 }
-#History{
+
+body.dark,
+.dark {
+    --bg-color: rgb(44, 44, 44);
+    --card-bg: rgb(36, 36, 36);
+    --card-item-bg: rgb(28, 28, 28);
+
+    --font-color: #e6e6e6;
+
+    --shadow-color: rgba(0, 0, 0, 0.5);
+
+    --border-color: rgba(255, 255, 255, 0.1);
+
+    --scrollbar-track: rgba(255, 255, 255, 0.05);
+}
+#History {
+    width: 100%;
+
+    min-height: 450px;
+
+    padding: 50px 20px;
+
     display: flex;
     flex-direction: column;
-    width: 100%;
-    min-height: 500px;
+    align-items: center;
 
-}
-#History p {
-    font-size: 1.2rem;
+    background-color: var(--bg-color);
+
+    box-sizing: border-box;
+
+    transition: background-color 0.3s ease;
 }
 #History .history-container {
     width: 95%;
+
+    max-width: 1100px;
+
+    height: 300px;
+
+    padding: 20px;
+
+    background-color: var(--card-bg);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 24px var(--shadow-color);
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+#History .history-container > section {
+    width: 100%;
+
     height: 100%;
 
-    border-radius: 0%;
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    padding-bottom: 10px;
+
+    box-sizing: border-box;
+
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+}
+#History .history-container > section::-webkit-scrollbar {
+    height: 8px;
+}
+
+#History .history-container > section::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+
+    border-radius: 10px;
+}
+
+#History .history-container > section::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+
+    border-radius: 10px;
+}
+
+#History .history-container > section::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-green-hover);
+}
+
+#History .history-container > section {
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--primary-green)
+        var(--scrollbar-track);
+}
+
+#History .card,
+#History .double-section-card {
+    flex: 0 0 350px;
+
+    width: 350px;
+
+    height: 90%;
+
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-self: center;
+
+    background-color: var(--card-item-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    scroll-snap-align: start;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+#History .card:hover,
+#History .double-section-card:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--primary-green);
+
+    box-shadow:
+        0 8px 20px var(--shadow-color);
+}
+#History .left-section {
+    flex: 0 0 50%;
+
+    width: 50%;
+
+    max-width: 50%;
+
+    height: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 12px;
+
+    background-color: rgba(0, 0, 0, 0.03);
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+#History .left-section img {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    max-width: 100%;
+
+    max-height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    transition: transform 0.3s ease;
+}
+
+
+#History .card:hover .left-section img,
+#History .double-section-card:hover .left-section img {
+    transform: scale(1.05);
+}
+#History .right-section {
+    flex: 0 0 50%;
+
+    width: 50%;
+
+    max-width: 50%;
+
+    height: 100%;
+
+    min-width: 0;
+
+    min-height: 0;
+
+    padding: 16px 12px;
+
+    display: grid;
+
+    grid-template-rows:
+        32px
+        minmax(0, 1fr)
+        58px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+#History .right-section > * {
+    width: 100%;
+
+    min-width: 0;
+
+    min-height: 0;
+
+    box-sizing: border-box;
+}
+#History .right-section .card-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 0;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    color: var(--primary-green);
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    box-sizing: border-box;
+}
+#History .right-section .card-main {
+    width: 100%;
+
+    min-width: 0;
+
+    min-height: 0;
+
+    margin: 0;
+
+    padding: 4px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+#History .right-section .scene-text,
+#History .right-section .card-main p {
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    color: var(--font-color);
+
+    text-align: center;
+
+    word-break: break-word;
+
+    overflow-wrap: anywhere;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 4;
+
+    line-clamp: 4;
+
+    overflow: hidden;
+}
+#History .right-section .card-footer {
+    width: 100%;
+
+    height: 58px;
+
+    min-height: 58px;
+
+    margin: 0;
+
+    padding: 4px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+#History .right-section .date-tag,
+#History .right-section .tag {
+    width: 100%;
+
+    max-width: 130px;
+
+    height: 22px;
+
+    min-height: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0;
+
+    padding: 2px 6px;
+
+    font-size: 0.68rem;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    color: var(--font-color);
+
+    background-color: rgba(0, 0, 0, 0.04);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 6px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    box-sizing: border-box;
+}
+#History .right-section .tag {
+    color: var(--primary-green);
+
+    background-color: rgba(0, 212, 64, 0.08);
+
+    border-color: rgba(0, 212, 64, 0.2);
+}
+body.dark #History .right-section .date-tag,
+.dark #History .right-section .date-tag {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark #History .right-section .tag,
+.dark #History .right-section .tag {
+    background-color: rgba(0, 212, 64, 0.15);
+}
+@media (max-width: 768px) {
+
+    #History {
+        min-height: auto;
+
+        padding: 25px 12px;
+    }
+
+    #History .history-container {
+        width: 100%;
+
+        height: 240px;
+
+        padding: 14px;
+
+        border-radius: 12px;
+    }
+    #History .history-container > section {
+        gap: 14px;
+
+        padding-bottom: 8px;
+
+        align-items: center;
+    }
+    #History .card,
+    #History .double-section-card {
+        flex: 0 0 300px;
+
+        width: 300px;
+
+        height: 90%;
+
+        min-height: 0;
+    }
+    #History .left-section {
+        flex: 0 0 50%;
+
+        width: 50%;
+
+        max-width: 50%;
+
+        padding: 10px;
+    }
+    #History .left-section img {
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: contain;
+    }
+
+    #History .right-section {
+        flex: 0 0 50%;
+
+        width: 50%;
+
+        max-width: 50%;
+
+        padding: 12px 9px;
+
+        grid-template-rows:
+            32px
+            minmax(0, 1fr)
+            58px;
+    }
+
+    #History .right-section .card-header {
+        font-size: 0.70rem;
+
+        letter-spacing: 0.8px;
+    }
+
+    #History .right-section .scene-text,
+    #History .right-section .card-main p {
+        font-size: 0.78rem;
+
+        line-height: 1.35;
+
+        -webkit-line-clamp: 4;
+
+        line-clamp: 4;
+    }
+
+    #History .right-section .card-footer {
+        height: 58px;
+
+        min-height: 58px;
+
+        gap: 5px;
+    }
+
+    #History .right-section .date-tag,
+    #History .right-section .tag {
+        max-width: 115px;
+
+        height: 21px;
+
+        min-height: 21px;
+
+        padding: 2px 4px;
+
+        font-size: 0.62rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #History {
+        padding: 20px 10px;
+    }
+
+    #History .history-container {
+        width: 100%;
+
+        height: 240px;
+
+        padding: 12px;
+
+        border-radius: 12px;
+    }
+    #History .card,
+    #History .double-section-card {
+        flex: 0 0 290px;
+
+        width: 290px;
+
+        height: 90%;
+    }
+    #History .left-section {
+        flex: 0 0 50%;
+
+        width: 50%;
+
+        max-width: 50%;
+
+        padding: 9px;
+    }
+    #History .right-section {
+        flex: 0 0 50%;
+
+        width: 50%;
+
+        max-width: 50%;
+
+        padding: 10px 8px;
+
+        grid-template-rows:
+            32px
+            minmax(0, 1fr)
+            58px;
+    }
+    #History .right-section .card-header {
+        font-size: 0.68rem;
+
+        letter-spacing: 0.7px;
+    }
+    #History .right-section .scene-text,
+    #History .right-section .card-main p {
+        font-size: 0.74rem;
+
+        line-height: 1.35;
+
+        -webkit-line-clamp: 4;
+
+        line-clamp: 4;
+    }
+    #History .right-section .card-footer {
+        height: 58px;
+
+        min-height: 58px;
+
+        gap: 5px;
+    }
+    #History .right-section .date-tag,
+    #History .right-section .tag {
+        max-width: 110px;
+
+        height: 21px;
+
+        min-height: 21px;
+
+        padding: 2px 4px;
+
+        font-size: 0.60rem;
+    }
 }
