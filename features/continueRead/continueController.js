@@ -11,7 +11,7 @@ function continueReadController() {
         const continueBtn = document.querySelector(".continue-reading-btn");
 
         continueBtn.addEventListener("click", () => {
-            location.href = "../../pages/book.html"
+            location.href = "./pages/book.html"
         });
     }
 }
