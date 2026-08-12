@@ -80,7 +80,7 @@
         transform: translateX(-150%);
     }
 }
-@media (min-width: 769px) and (max-width: 1528px) {
+@media (min-width: 769px) {
     .book {
         background-color: transparent;
         box-shadow: none;
