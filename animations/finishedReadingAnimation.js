@@ -1,7 +1,7 @@
 import createCard from "../components/card.js";
 
 function finishedReadingAnimation() {
-    if (screen.width < 768) {
+    if (window.matchMedia("(max-width: 768px)").matches) {
         animateMobile();
     } else {
         animeLaptop();
