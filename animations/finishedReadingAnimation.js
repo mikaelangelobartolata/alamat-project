@@ -1,7 +1,5 @@
 import createCard from "../components/card.js";
 
-console.log(screen.width);
-
 function finishedReadingAnimation() {
     if (screen.width < 768) {
         animateMobile();

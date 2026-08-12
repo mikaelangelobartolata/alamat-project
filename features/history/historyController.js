@@ -5,7 +5,6 @@ import readServices from "../read/readService.js";
 
 const historyController = {
     saveOnExit() {
-        console.log(2);
         window.addEventListener("beforeunload", () => {
             historyService.addLastViewPage();
         });

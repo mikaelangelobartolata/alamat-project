@@ -26,7 +26,6 @@ function headerCSS() {
         if(!changeTheme) {
             for (const child of allChildren) {
                 child.classList.add('dark');
-                console.log(child);
             }
             
             toggle.innerHTML = `<img class="theme-picture" src="https://i.ibb.co/QjXY0PLW/night.jpg">`;
