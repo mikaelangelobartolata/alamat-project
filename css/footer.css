@@ -1,72 +1,118 @@
-:root{
-    --bg-color:rgba(255, 255, 255, 0.8);
-    --font-color: rgba(0, 0, 0, 0.8);
+:root {
+    --bg-color: rgba(255, 255, 255, 0.8);
+    --font-color: #2d3748;                /* Dark gray body text */
+    --header-color: #0b8036;              /* Dark green accent header */
+    --label-color: #718096;               /* Muted label color */
     --shadow-color: rgba(21, 221, 81, 0.5);
+    --icon-color: #3b82f6;
 }
 
-footer{
-    height: 600px;
+/* Dark mode scoped strictly to the footer */
+footer.dark, .dark footer {
+    --bg-color: #121212;
+    --font-color: #e2e8f0;               /* Off-white body text */
+    --header-color: #00e676;             /* Vibrant green accent header */
+    --label-color: #a0aec0;              /* Softer gray for prefixes like "Name:" */
+    --icon-color: #60a5fa;
+}
+
+/* Footer Container */
+footer {
+    height: auto;
+    min-height: 600px;
     width: 100%;
     background-color: var(--bg-color);
     padding: 3% 5%;
     display: grid;
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
-    gap: 0%;
+    gap: 20px;
     overflow: auto;
     scrollbar-width: none;
-    --webkit-scrollbar-width: none; 
 }
+
+footer::-webkit-scrollbar {
+    display: none;
+}
+
 @keyframes text-apear {
     from {
         opacity: 0.1;
         transform: translate(0, 100px);
-    } to {
+    } 
+    to {
         opacity: 1;
         transform: translate(0);
     }
 }
-footer div{
+
+footer div {
     background-color: transparent;
     width: 100%;
-    height: 84%;
-    max-height:auto;
 }
-.footer-child1, .footer-child2{
-    padding: 45px;
+
+/* Footer Content Sections */
+.footer-child1, .footer-child2 {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    row-gap: 18px;
+    row-gap: 16px;
     overflow: auto;
     scrollbar-width: none;
 }
 
-#text-header{
-    margin-bottom: -2px;
-    word-spacing: 3px;
-    font-size:20px;
-    color: rgba(0, 0, 0, 0.9);
-}
-#text-header, .footer-child1 span, .footer-child2 span{
-    font-weight: 550;
-    font-size: 17px;
-    opacity: 0.9;
-    word-spacing: 1px;
-    line-height: 19px;
+.footer-child1::-webkit-scrollbar,
+.footer-child2::-webkit-scrollbar {
+    display: none;
 }
 
-.footer-child1 span, .footer-child2 span{
-    margin-left: 15px;
-    opacity: 0.8;
-    color: var(--font-color);
-    padding-right: 20px;
+/* Section Headers (DEVELOPER DETAILS, SCHOOL YEAR, etc.) */
+#text-header {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--header-color);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    word-spacing: 2px;
 }
-#highlight{
+
+/* Body Text / Detail Rows */
+.footer-child1 span, .footer-child2 span {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    color: var(--font-color);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-left: 0;
+    padding-right: 0;
+}
+
+/* Optional label prefix styling (e.g. <strong>Name:</strong>) */
+.footer-child1 span strong, .footer-child2 span strong,
+.footer-child1 span b, .footer-child2 span b {
+    color: var(--label-color);
+    font-weight: 600;
+}
+
+/* Align SVG/Icons cleanly in front of text */
+.footer-child1 span i, .footer-child1 span svg,
+.footer-child2 span i, .footer-child2 span svg {
+    flex-shrink: 0;
+    color: var(--icon-color);
+    margin-top: 2px;
+}
+
+#highlight {
     line-height: 20px;
 }
 
+/* Footer Bottom Section */
 .footer-child3 {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
     height: 100%;
     width: 100%;
     display: flex;
@@ -76,13 +122,15 @@ footer div{
     gap: 20px;
     position: relative; 
 }
-.footer-child3 div{
+
+.footer-child3 div {
     background-color: transparent;
     width: 100%;
     height: 50%;
 }
-/*social media*/
-.social-media-container{
+
+/* Social Media & Logos */
+.social-media-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -91,12 +139,14 @@ footer div{
     margin-bottom: 15px;
     gap: 10%;
 }
-.media-logo{
+
+.media-logo {
     height: 35px;
     width: 35px;
     border-radius: 10px;
     cursor: pointer;
 }
+
 .logos, .logo-container {
     display: flex;
     align-items: center;
@@ -105,11 +155,12 @@ footer div{
     cursor: default;
     margin-left: -5px;
 }
-.logo-container{
+
+.logo-container {
     display: flex;
     flex-direction: column;
-
 }
+
 .logos img {
     height: 35px;
     width: 35px;
@@ -118,7 +169,7 @@ footer div{
 }
 
 #kind {
-    color: var(--font-light-window-mode);
+    color: var(--font-color);
     font-size: 1rem;
     font-weight: 550;
 }
@@ -129,10 +180,35 @@ footer div{
     font-weight: 700;
     margin-left: -5px;
 }
-.copyright{
+
+.copyright {
     color: var(--font-color);
     font-size: 1rem;
-    font-weight: 550;
-    opacity: 0.6;
-    text-wrap: nowrap;
+    font-weight: 500;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+/* Mobile View Formatting */
+@media (max-width: 768px) {
+    footer {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        height: auto;
+    }
+
+    .footer-child1, .footer-child2 {
+        padding: 10px 0;
+        height: auto;
+    }
+
+    .footer-child3 {
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .copyright {
+        white-space: normal;
+        text-align: center;
+    }
 }

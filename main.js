@@ -2,8 +2,8 @@ import greetingsController from "./features/greetings/greetingsController.js";
 import clickSpoiler from "./features/summary/summaryController.js";
 import readStory from "./features/read/readController.js";
 import continueReadController from "./features/continueRead/continueController.js";
-
 import historyController from "./features/history/historyController.js";
+import themeController from "./features/themeToggle/themeController.js";
 
 greetingsController.checkFirstVisit();
 historyController.renderHistory();
@@ -11,36 +11,8 @@ clickSpoiler();
 readStory();
 continueReadController();
 
-const bodyDOM = document.body;
-
-headerCSS();
-sectionCSS();
-footerCSS();
-
-function headerCSS() {
-    let changeTheme = false;
-    const allChildren = bodyDOM.children;
-    const toggle = document.querySelector('.theme');
-    toggle.innerHTML = `<img src="https://i.ibb.co/j9ntSFgv/day.jpg" class="theme-picture">`;
-    toggle.addEventListener('click', ()=> {
-        if(!changeTheme) {
-            for (const child of allChildren) {
-                child.classList.add('dark');
-            }
-            
-            toggle.innerHTML = `<img class="theme-picture" src="https://i.ibb.co/QjXY0PLW/night.jpg">`;
-            changeTheme = true;
-            return;
-        }
-        else {
-            for (const child of allChildren) child.classList.remove('dark');
-            toggle.innerHTML = `<img class="theme-picture" src="https://i.ibb.co/j9ntSFgv/day.jpg">`;
-            changeTheme = false;
-            return;
-        }
-    });
-}
-
+themeController.toggleTheme();
+themeController.renderTheme();
 
 function sectionCSS() {
     const hoverBook = document.querySelector('.section-1st-child');

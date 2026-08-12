@@ -25,7 +25,7 @@ const readServices = {
         const userData = getUserData();
 
         userData.lastPageViewed = currScene;
-        
+
         localStorage.setItem("current-user-alamat", JSON.stringify(userData));
     },
     setFinished() {
@@ -39,6 +39,22 @@ const readServices = {
         userData.lastPageViewed = null;
 
         localStorage.setItem("current-user-alamat", JSON.stringify(userData));
+    },
+    setBookFinish(state) {
+        const userData = getUserData();
+
+        if (state === "set") {
+            userData.isCurrentFinished = true;
+        } else if ("remove") {
+            userData.isCurrentFinished = false;
+        }
+
+        localStorage.setItem("current-user-alamat", JSON.stringify(userData));
+    },
+    checkCurrentBookStatus() {
+        const userData = getUserData();
+
+        return userData.isCurrentFinished;
     },
     checkReadStatus() {
         const userData = getUserData();

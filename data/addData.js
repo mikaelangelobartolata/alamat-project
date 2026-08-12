@@ -9,6 +9,7 @@ function intializeStartupData(username) {
         name: username,
         isFirstVisit: true,
         isFinishedOnce: false,
+        isCurrentFinished: false,
         theme: "light",
         lastPageViewed: null,
         history: [],

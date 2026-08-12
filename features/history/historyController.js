@@ -17,8 +17,9 @@ const historyController = {
 
         historyContainer.appendChild(historyUi(historyData));
 
-        if (readServices.checkReadStatus()) {
+        if (readServices.checkCurrentBookStatus()) {
             readServices.restartViewPage();
+            readServices.setBookFinish("remove");
         }
     }
 }

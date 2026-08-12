@@ -13,8 +13,9 @@ function nextController() {
         const nextScene = nextService.getNextScene();
         const sceneData = readServices.getNextSceneData(nextScene);
 
-        if (!sceneData)  {
+        if (!sceneData) {
             finishedReadingAnimation();
+            readServices.setBookFinish("set");
             readServices.setFinished();
             return;
         }
