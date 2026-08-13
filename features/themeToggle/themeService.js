@@ -15,6 +15,8 @@ const themeService = {
     getCurrentTheme() {
         const userData = getUserData();
 
+        if (!userData) return;
+
         return userData.theme;
     }
 }

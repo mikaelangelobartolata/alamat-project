@@ -6,6 +6,11 @@ const greetingsService = {
 
         if (!currUser) return true;
         return false;
+    },
+    getUserName() {
+        const currUser = getUserData();
+
+        return currUser.name;
     }
 }
 

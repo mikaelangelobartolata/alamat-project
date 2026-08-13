@@ -60,6 +60,11 @@ const readServices = {
         const userData = getUserData();
 
         return userData.isFinishedOnce;
+    },
+    getCurrScene() {
+        const userData = getUserData();
+        
+        return userData.lastPageViewed;
     }
 }
 

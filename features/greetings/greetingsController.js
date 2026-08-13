@@ -15,7 +15,12 @@ const greetingsController = {
 
         if (checkVisit) {
             fillName();
+
+            return;
         }
+
+        showMessage();
+
     }
 }
 
@@ -38,8 +43,27 @@ const fillName = () => {
     });
 
     close.addEventListener("click", () => {
+        intializeStartupData("User");
         closeModal(modal);
     });
 }
 
+const showMessage = () => {
+    const name = greetingsService.getUserName();
+    const modal = greetingsUI.returningUser(name);
+
+    body.appendChild(modal);
+
+    requestAnimationFrame(() => {
+        modal.classList.add("animate-show");
+    });
+
+    setTimeout(() => {
+        modal.classList.remove("animate-show");
+    }, 3000);
+
+    setTimeout(() => {
+        modal.remove();
+    }, 3310);
+}
 export default greetingsController;

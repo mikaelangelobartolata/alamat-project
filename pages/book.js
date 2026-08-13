@@ -3,6 +3,7 @@ import readUI from "../features/read/readUi.js";
 
 import historyController from "../features/history/historyController.js";
 import nextController from "../features/nextRead/nextController.js";
+import previousController from "../features/previous/previousController.js";
 
 const renderingLastViewPage = () => {
     const coverDiv = document.querySelector(".cover-div");
@@ -18,3 +19,6 @@ const renderingLastViewPage = () => {
 renderingLastViewPage();
 historyController.saveOnExit();
 nextController();
+
+previousController.handleAnimation();
+previousController.handleClick();

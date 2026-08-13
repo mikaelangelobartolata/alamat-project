@@ -66,6 +66,7 @@ body {
     padding: 60px 60px 10px 60px;
     color: #2c2c2c;
     box-shadow: inset 15px 0 25px rgba(0, 0, 0, 0.04);
+    z-index: 1; /* Keep scene below animation layers */
 }
 
 .scene::-webkit-scrollbar {
@@ -93,6 +94,10 @@ body {
     color: #3b3b3b;
 }
 
+.cover-animation {
+    z-index: 10; /* Higher than scene */
+}
+
 button {
     margin-top: auto;
     margin-left: auto;
@@ -116,6 +121,88 @@ button:hover {
     border: solid 1px green;
 }
 
+.previous-div {
+    width: 8%;
+    height: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 15;
+}
+
+.previous-div button {
+    opacity: 0;
+    width: 90%;
+    height: 10%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgb(22, 22, 22);
+
+    transition: opacity 0.5s ease;
+
+    cursor: pointer;
+}
+
+.previous-div button:hover {
+    opacity: 1;
+    border: solid 1px white;
+}
+
+.previous-div button.animate-show-color {
+    opacity: 0.7;
+    border: solid 1px white;
+}
+
+.detail-message {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    
+    position: absolute;
+    top: 10px;
+    left: 20%;
+    width: 75%;
+    height: 10%;
+
+    background-color: #1a1a24;
+
+    border-radius: 10px;
+
+    transition: opacity 0.5s ease;
+    z-index: 20;
+}
+
+.detail-message p {
+    margin-left: 10px;
+    font-size: 14px;
+
+    color: white;
+}
+
+.cat-img-div {
+    position: relative;
+    width: 10%;
+    height: 100%;
+}
+
+.cat-img-div img {
+    position: absolute;
+    right: 30%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    transform: scale(2.5);
+}
+
+.detail-message.animate-show {
+    opacity: 0.7;
+}
 
 @media (max-width: 768px) {
     body {
@@ -145,8 +232,55 @@ button:hover {
         opacity: 0.9;
         border-radius: 16px 16px 0 0;
         padding: 25px 20px 15px 20px;
+        z-index: 2; /* Set below .cover-animation (10) */
     }
+
     .scene p {
         color: rgb(139, 139, 139);
+    }
+
+    .previous-div {
+        width: 48px;
+        height: 48px;
+        top: 15px;
+        left: 15px;
+        z-index: 20;
+        border: none;
+    }
+
+    .previous-div button {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .detail-message {
+        top: 15px;
+        left: 70px;
+        width: calc(100% - 85px);
+        height: 48px;
+        padding: 0 10px;
+        z-index: 25;
+    }
+
+    .detail-message p {
+        font-size: 12px;
+        margin-left: 5px;
+        line-height: 1.2;
+    }
+
+    .cat-img-div {
+        width: 35px;
+        height: 100%;
+        flex-shrink: 0;
+    }
+
+    .cat-img-div img {
+        right: 0;
+        transform: scale(1.5);
     }
 }
