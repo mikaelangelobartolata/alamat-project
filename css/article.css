@@ -52,7 +52,7 @@ body.dark,
 
     padding: 20px;
 
-    background-color: var(--card-bg);
+    background-color: transparent;
 
     border-radius: 16px;
 
@@ -66,6 +66,11 @@ body.dark,
     transition:
         background-color 0.3s ease,
         box-shadow 0.3s ease;
+}
+.History p {
+    background-color: transparent;
+    font-weight: 550;
+    opacity: 0.9;
 }
 #History .history-container > section {
     width: 100%;
@@ -424,8 +429,8 @@ body.dark #History .right-section .tag,
 
     #History {
         min-height: auto;
-
         padding: 25px 12px;
+        scroll-margin-top: 120px;
     }
 
     #History .history-container {
