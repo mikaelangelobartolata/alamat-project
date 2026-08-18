@@ -1,0 +1,32 @@
+:root {
+    --bg-color: transparent;
+    --scrollbar-thump-color: rgba(75, 138, 89, 0.30);
+    --scrollbar-hover-thump-color: rgba(75, 138, 89, 1);
+}
+html, body
+{ 
+    background-color:var(--bg-color);
+    scroll-behavior: smooth;
+}
+main, body, .History {
+    scroll-margin-top: 80px;
+}
+::-webkit-scrollbar {
+  width: 10px; 
+  max-height: 3px; 
+  transition: 200ms smooth ease-in-out;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thump-color);
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover-thump-color);
+}
