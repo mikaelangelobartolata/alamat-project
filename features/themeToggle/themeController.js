@@ -5,34 +5,38 @@ const themeBtn = document.querySelector(".theme");
 
 const themeController = {
     toggleTheme() {
+        if (!themeBtn) return;
+
         const bodyDOM = document.body;
-
         const allChildren = bodyDOM.children;
-        const toggle = document.querySelector('.theme');
-        toggle.innerHTML = `<img src="https://i.ibb.co/j9ntSFgv/day.jpg" class="theme-picture">`;
+        
 
-        themeBtn.addEventListener("click", () => {
-            if(themeService.getCurrentTheme() === "light") {
-                themeService.updateThemeData();
+        themeBtn.onclick = () => {
+            const currentTheme = themeService.getCurrentTheme();
 
+            if (currentTheme === "light") {
                 for (const child of allChildren) {
                     child.classList.add('dark');
                 }
-                
-                toggle.innerHTML = `<img class="theme-picture" src="https://i.ibb.co/QjXY0PLW/night.jpg">`;
-                return;
-            } else {
-                themeService.updateThemeData();
+                bodyDOM.classList.add('darkScrollbar');
+                themeBtn.innerHTML = `<img class="theme-picture" src="https://i.ibb.co/QjXY0PLW/night.jpg">`;
 
-                for (const child of allChildren) child.classList.remove('dark');
-                toggle.innerHTML = `<img class="theme-picture" src="https://i.ibb.co/j9ntSFgv/day.jpg">`;
-                return;
+                themeService.updateThemeData();
+            } else {
+                
+                for (const child of allChildren) {
+                    child.classList.remove('dark');
+                }
+                bodyDOM.classList.remove('darkScrollbar');
+                themeBtn.innerHTML = `<img class="theme-picture" src="https://i.ibb.co/j9ntSFgv/day.jpg">`;
+
+                themeService.updateThemeData();
             }
-        });
+        };
     },
+
     renderTheme() {
         const currTheme = themeService.getCurrentTheme();
-
         themeUi(currTheme);
     }
 }
