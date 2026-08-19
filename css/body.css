@@ -1,14 +1,14 @@
 :root {
-    --bg-color: transparent;
+    --bg-color: rgba(0, 0, 0, 0.5);
     --scrollbar-thump-color: rgba(75, 138, 89, 0.30);
     --scrollbar-hover-thump-color: rgba(75, 138, 89, 1);
 }
 html, body
 { 
-    background-color:var(--bg-color);
+    background-color: var(--bg-color);
     scroll-behavior: smooth;
 }
-main, body, .History {
+main, body, .History, footer {
     scroll-margin-top: 80px;
 }
 ::-webkit-scrollbar {
@@ -17,9 +17,9 @@ main, body, .History {
   transition: 200ms smooth ease-in-out;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-color);
-  border-radius: 10px;
+.darkScrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 30px;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thump-color);
