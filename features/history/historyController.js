@@ -2,6 +2,7 @@ import historyService from "./historyService.js";
 import historyUi from "./historyUi.js";
 
 import readServices from "../read/readService.js";
+import quizService from "../quiz/quizService.js";
 
 const historyController = {
     saveOnExit() {
@@ -20,6 +21,8 @@ const historyController = {
         if (readServices.checkCurrentBookStatus()) {
             readServices.restartViewPage();
             readServices.setBookFinish("remove");
+
+            quizService.clearQuizTaken();
         }
     }
 }

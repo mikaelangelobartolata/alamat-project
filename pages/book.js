@@ -5,6 +5,9 @@ import historyController from "../features/history/historyController.js";
 import nextController from "../features/nextRead/nextController.js";
 import previousController from "../features/previous/previousController.js";
 
+import quizController from "../features/quiz/quizController.js";
+
+
 const renderingLastViewPage = () => {
     const coverDiv = document.querySelector(".cover-div");
 

@@ -1,22 +1,22 @@
 :root {
     --bg-color: rgba(255, 255, 255, 0.8);
-    --font-color: #2d3748;                /* Dark gray body text */
-    --header-color: #0b8036;              /* Dark green accent header */
-    --label-color: #718096;               /* Muted label color */
+    --font-color: #2d3748;                
+    --header-color: #0b8036;              
+    --label-color: #718096;               
     --shadow-color: rgba(21, 221, 81, 0.5);
     --icon-color: #3b82f6;
 }
 
-/* Dark mode scoped strictly to the footer */
+
 footer.dark, .dark footer {
     --bg-color: #121212;
-    --font-color: #e2e8f0;               /* Off-white body text */
-    --header-color: #00e676;             /* Vibrant green accent header */
-    --label-color: #a0aec0;              /* Softer gray for prefixes like "Name:" */
+    --font-color: #e2e8f0;               
+    --header-color: #00e676;             
+    --label-color: #a0aec0;              
     --icon-color: #60a5fa;
 }
 
-/* Footer Container */
+
 footer {
     height: auto;
     min-height: 600px;
@@ -51,7 +51,7 @@ footer div {
     width: 100%;
 }
 
-/* Footer Content Sections */
+
 .footer-child1, .footer-child2 {
     padding: 20px;
     display: flex;
@@ -66,7 +66,7 @@ footer div {
     display: none;
 }
 
-/* Section Headers (DEVELOPER DETAILS, SCHOOL YEAR, etc.) */
+
 #text-header {
     margin-top: 10px;
     margin-bottom: 2px;
@@ -78,7 +78,7 @@ footer div {
     word-spacing: 2px;
 }
 
-/* Body Text / Detail Rows */
+
 .footer-child1 span, .footer-child2 span {
     font-weight: 500;
     font-size: 15px;
@@ -91,14 +91,14 @@ footer div {
     padding-right: 0;
 }
 
-/* Optional label prefix styling (e.g. <strong>Name:</strong>) */
+
 .footer-child1 span strong, .footer-child2 span strong,
 .footer-child1 span b, .footer-child2 span b {
     color: var(--label-color);
     font-weight: 600;
 }
 
-/* Align SVG/Icons cleanly in front of text */
+
 .footer-child1 span i, .footer-child1 span svg,
 .footer-child2 span i, .footer-child2 span svg {
     flex-shrink: 0;
@@ -110,7 +110,7 @@ footer div {
     line-height: 20px;
 }
 
-/* Footer Bottom Section */
+
 .footer-child3 {
     grid-column: 1 / -1;
     height: 100%;
@@ -129,7 +129,7 @@ footer div {
     height: 50%;
 }
 
-/* Social Media & Logos */
+
 .social-media-container {
     display: flex;
     flex-direction: row;
@@ -189,7 +189,7 @@ footer div {
     white-space: nowrap;
 }
 
-/* Mobile View Formatting */
+
 @media (max-width: 768px) {
     footer {
         grid-template-columns: 1fr;

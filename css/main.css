@@ -3,7 +3,7 @@
     --primary-green: #00d440;
     --primary-green-hover: #00b336;
     --dark-font-color: #ffffff;
-    --dark-label-color: #a0aec0; /* Soft gray for label prefixes */
+    --dark-label-color: #a0aec0; 
 }
 
 .main-container {
@@ -112,7 +112,7 @@
 
 .meta-info .label {
     font-weight: 700;
-    color: #555555; /* Muted label color for light mode */
+    color: #555555; 
 }
 
 .summary-container {
@@ -180,7 +180,7 @@
     transform: translateY(-2px);
 }
 
-/* --- DARK MODE TEXT CONTRAST FIXES --- */
+
 .dark {
     background-color: rgb(44, 44, 44);
 }
@@ -189,7 +189,7 @@
     color: var(--dark-font-color);
 }
 
-/* Value text stays pure bright white */
+
 .dark .book-title,
 .dark .meta-info p {
     color: #ffffff !important;
@@ -199,13 +199,13 @@
     color: #cccccc !important;
 }
 
-/* "Author:" and "Genre:" labels given soft gray for distinction */
+
 .dark .meta-info .label {
     color: var(--dark-label-color) !important;
     font-weight: 700;
 }
 
-/* "SUMMARY:" header matched with primary green accent */
+
 .dark #summary-header {
     color: var(--primary-green) !important;
 }
@@ -225,7 +225,7 @@
     color: #cccccc;
 }
 
-/* --- MEDIA QUERIES --- */
+
 @media (max-width: 768px) {
     .main-container {
         flex-direction: column;
